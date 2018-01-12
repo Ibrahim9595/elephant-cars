@@ -1,5 +1,11 @@
-mat-form-field{
+.container{
     width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+
+mat-form-field{
+    width: 100%;
 }
 
 .float{
