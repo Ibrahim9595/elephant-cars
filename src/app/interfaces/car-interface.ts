@@ -1,5 +1,5 @@
 export interface CarInterface {
-    uid: string,
+    key: string,
     brand: string,
     country: string,
     year: string,

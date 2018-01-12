@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutesModule } from "./routes/Routes.module";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import {
   MatButtonModule,
@@ -23,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CarDetailsComponent } from './screens/car-details/car-details.component';
 import { LoginComponent } from './screens/login/login.component';
 import { UserAuthinticationService } from './user-authintication.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,10 @@ import { UserAuthinticationService } from './user-authintication.service';
     MatCardModule,
     MatListModule,
     ReactiveFormsModule,
-    RoutesModule
+    RoutesModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [UserAuthinticationService],
   bootstrap: [AppComponent]

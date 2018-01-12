@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CarInterface } from '../../interfaces/car-interface';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatSnackBar } from '@angular/material';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-cars-table',
@@ -8,23 +10,33 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./cars-table.component.css']
 })
 export class CarsTableComponent implements OnInit {
-  carsList: CarInterface[] = [
-    {uid:"1", brand: "Nissan", year: "2017", country: "Japan", delete: false},
-    {uid:"2", brand: "Ford", year: "1999", country: "USA", delete: false}
-  ];
-    
-
   displayedColumns = ['brand', 'year', 'country', 'delete'];
   dataSource = new MatTableDataSource<CarInterface>();
 
-  constructor() { }
+  constructor(private db: AngularFireDatabase, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.dataSource.data = this.carsList
+    this.db.list<CarInterface>('cars').snapshotChanges().subscribe(data => {
+      let source = [];
+      data.forEach(d=>{
+        source.push(d.payload.val())
+        source[source.length - 1]['key'] = d.key;
+      });
+
+      this.dataSource.data = source
+    });
   }
 
   delete(car: CarInterface) {
     let confirmation = confirm(`Are you sure you want to delete car ${car.brand}`);
+    if(confirmation) {
+      this.db.list('cars').remove(car.key)
+      .then(data => {
+
+      }).catch(err => {
+
+      });
+    }
   }
   
 }
