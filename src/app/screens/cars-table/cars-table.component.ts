@@ -32,9 +32,9 @@ export class CarsTableComponent implements OnInit {
     if(confirmation) {
       this.db.list('cars').remove(car.key)
       .then(data => {
-
+        this.snackBar.open("Data has been removed", "dismiss", {duration: 500});
       }).catch(err => {
-
+        this.snackBar.open("Error has been occured", "dismiss", {duration: 500});
       });
     }
   }

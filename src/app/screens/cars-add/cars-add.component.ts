@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { Car } from './Car';
 import { Console } from '@angular/core/src/console';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-cars-add',
@@ -17,7 +19,7 @@ export class CarsAddComponent implements OnInit {
 
   car: Car;
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.car = new Car();
@@ -25,7 +27,10 @@ export class CarsAddComponent implements OnInit {
 
   saveCar() {
     this.db.list('cars').push(this.car).then(data => {
-      alert(data);
+      this.snackBar.open("Data saved proberly", "Back Home")
+      .onAction().subscribe(d=>{
+        this.router.navigate(['']);
+      });
     });
   }
 

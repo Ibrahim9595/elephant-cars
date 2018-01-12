@@ -16,7 +16,8 @@ import {
   MatTooltipModule,
   MatTableModule,
   MatCardModule,
-  MatListModule
+  MatListModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -49,6 +50,7 @@ import { environment } from '../environments/environment';
     MatTableModule,
     MatCardModule,
     MatListModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     RoutesModule,
     AngularFireModule.initializeApp(environment.firebase),

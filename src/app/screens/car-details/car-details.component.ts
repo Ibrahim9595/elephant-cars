@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { CarInterface } from '../../interfaces/car-interface';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-car-details',
@@ -6,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-details.component.css']
 })
 export class CarDetailsComponent implements OnInit {
-  img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYrqWetsQkKcH4JVkcnrbB12pGfa-XZFLlWLs2KP91Pp8vktWL"
+  car: CarInterface;
 
-  constructor() { }
+  constructor(private db: AngularFireDatabase, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let id = this.route.snapshot.paramMap.get('id');
+    this.db.object<CarInterface>(`cars/${id}`).valueChanges()
+    .subscribe(d => {
+      this.car = d;
+    });
   }
 
 }
