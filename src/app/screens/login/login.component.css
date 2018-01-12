@@ -1,0 +1,14 @@
+.container {
+    margin: 10% auto 0 auto;
+    width: 40%;
+}
+
+mat-form-field{
+    width: 100%;
+    margin: 10px auto 10px auto;
+}
+
+
+.green{
+    background-color: #41dd1ac5;
+}

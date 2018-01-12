@@ -12,7 +12,8 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTableModule,
-  MatCardModule
+  MatCardModule,
+  MatListModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -20,13 +21,16 @@ import { CarsTableComponent } from './screens/cars-table/cars-table.component';
 import { CarsAddComponent } from './screens/cars-add/cars-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CarDetailsComponent } from './screens/car-details/car-details.component';
+import { LoginComponent } from './screens/login/login.component';
+import { UserAuthinticationService } from './user-authintication.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarsTableComponent,
     CarsAddComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +44,11 @@ import { CarDetailsComponent } from './screens/car-details/car-details.component
     MatTooltipModule,
     MatTableModule,
     MatCardModule,
+    MatListModule,
     ReactiveFormsModule,
     RoutesModule
   ],
-  providers: [],
+  providers: [UserAuthinticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

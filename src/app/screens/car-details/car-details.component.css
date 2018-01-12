@@ -1,0 +1,14 @@
+.container{
+    margin: 10px auto 10px auto;
+    width: 50%;
+}
+
+.card-img{
+    width: 60%;
+    height: 300px;
+}
+
+.small {
+    font-weight: inherit;
+    font-size: 15px;
+}

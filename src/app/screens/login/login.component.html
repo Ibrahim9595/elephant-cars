@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Email" [(ngModel)]="user.email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">This must be a valid email</mat-error>
+          <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" [(ngModel)]="user.password" [formControl]="password" required>
+          <mat-icon matPrefix>vpn_key</mat-icon>
+          <mat-error *ngIf="password.invalid">password is too short (8 chars minimum)</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button class="float green" (click)="login()" 
+        [disabled]="!(email.valid && password.valid)">
+          <mat-icon>forward</mat-icon>
+          Login
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

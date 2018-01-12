@@ -1,7 +1,7 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="loginService.user">
   <span>Elephant Car</span>
   <div class="space"></div>
-  <button mat-icon-button color="secondary" matTooltip="Logout">
+  <button mat-icon-button color="secondary" matTooltip="Logout" (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>
