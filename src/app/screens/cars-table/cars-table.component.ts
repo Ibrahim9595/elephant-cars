@@ -9,8 +9,8 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class CarsTableComponent implements OnInit {
   carsList: CarInterface[] = [
-    {brand: "Nissan", year: "2017", country: "Japan", delete: false},
-    {brand: "Ford", year: "1999", country: "USA", delete: false}
+    {uid:"1", brand: "Nissan", year: "2017", country: "Japan", delete: false},
+    {uid:"2", brand: "Ford", year: "1999", country: "USA", delete: false}
   ];
     
 

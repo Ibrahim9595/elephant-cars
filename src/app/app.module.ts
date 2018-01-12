@@ -19,12 +19,14 @@ import { AppComponent } from './app.component';
 import { CarsTableComponent } from './screens/cars-table/cars-table.component';
 import { CarsAddComponent } from './screens/cars-add/cars-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CarDetailsComponent } from './screens/car-details/car-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarsTableComponent,
-    CarsAddComponent
+    CarsAddComponent,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,

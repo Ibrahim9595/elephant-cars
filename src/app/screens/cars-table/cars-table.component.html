@@ -3,7 +3,9 @@
   
       <ng-container matColumnDef="brand">
         <mat-header-cell *matHeaderCellDef> Brand </mat-header-cell>
-        <mat-cell *matCellDef="let car"> {{car.brand}} </mat-cell>
+        <mat-cell *matCellDef="let car"> 
+          <a [routerLink]="['/car/:id', car.uid]"> {{car.brand}} </a> 
+        </mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="year">
