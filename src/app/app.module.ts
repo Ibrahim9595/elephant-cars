@@ -18,6 +18,7 @@ import {
 import { AppComponent } from './app.component';
 import { CarsTableComponent } from './screens/cars-table/cars-table.component';
 import { CarsAddComponent } from './screens/cars-add/cars-add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CarsAddComponent } from './screens/cars-add/cars-add.component';
     MatTooltipModule,
     MatTableModule,
     MatCardModule,
+    ReactiveFormsModule,
     RoutesModule
   ],
   providers: [],
