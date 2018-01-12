@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarInterface } from './car-interface';
+import { CarInterface } from '../../interfaces/car-interface';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -23,5 +23,8 @@ export class CarsTableComponent implements OnInit {
     this.dataSource.data = this.carsList
   }
 
-
+  delete(car: CarInterface) {
+    let confirmation = confirm(`Are you sure you want to delete car ${car.brand}`);
+  }
+  
 }

@@ -1,0 +1,12 @@
+.margin{
+    margin: 5px 0 5px 0;
+}
+
+.float{
+    float: right;
+    margin: 10px
+}
+
+.green{
+    background-color: #30e43f;
+}

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RoutesModule } from "./Routes.module";
+import { RoutesModule } from "./routes/Routes.module";
 
 import {
   MatButtonModule,
@@ -11,16 +11,19 @@ import {
   MatInputModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTableModule
+  MatTableModule,
+  MatCardModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CarsTableComponent } from './screens/cars-table/cars-table.component';
+import { CarsAddComponent } from './screens/cars-add/cars-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarsTableComponent
+    CarsTableComponent,
+    CarsAddComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { CarsTableComponent } from './screens/cars-table/cars-table.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTableModule,
+    MatCardModule,
     RoutesModule
   ],
   providers: [],
