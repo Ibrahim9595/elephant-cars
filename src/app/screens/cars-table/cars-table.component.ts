@@ -12,6 +12,7 @@ import { Observable } from 'rxjs/Observable';
 export class CarsTableComponent implements OnInit {
   displayedColumns = ['brand', 'year', 'country', 'delete'];
   dataSource = new MatTableDataSource<CarInterface>();
+  loaded = false;
 
   constructor(private db: AngularFireDatabase, public snackBar: MatSnackBar) { }
 
@@ -24,6 +25,7 @@ export class CarsTableComponent implements OnInit {
       });
 
       this.dataSource.data = source
+      this.loaded = true;
     });
   }
 

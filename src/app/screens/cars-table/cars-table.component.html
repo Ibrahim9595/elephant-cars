@@ -1,39 +1,41 @@
-<mat-card>
-    <mat-table [dataSource]="dataSource">
-  
-      <ng-container matColumnDef="brand">
-        <mat-header-cell *matHeaderCellDef> Brand </mat-header-cell>
-        <mat-cell *matCellDef="let car"> 
-          <a [routerLink]="['/car/', car.key]"> {{car.brand}} </a> 
-        </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="year">
-        <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
-        <mat-cell *matCellDef="let car"> {{car.year}} </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="country">
-        <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
-        <mat-cell *matCellDef="let car"> {{car.country}} </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="delete">
-          <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
-          <mat-cell *matCellDef="let car">  
-              <button mat-mini-fab color="warn" 
-              matTooltip="Delete" class="margin" (click)="delete(car)">
-                  <mat-icon>delete</mat-icon>
-                </button>
-          </mat-cell>
-      </ng-container>
-
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </mat-card>
-
-<a mat-fab matTooltip="Add New Car" routerLink="/cars/add" class="float green">
-  <mat-icon>add</mat-icon>
-</a>
-  
+<mat-spinner *ngIf="!loaded"></mat-spinner>
+<div class="container" *ngIf="loaded">
+    <mat-card>
+        <mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="brand">
+            <mat-header-cell *matHeaderCellDef> Brand </mat-header-cell>
+            <mat-cell *matCellDef="let car"> 
+              <a [routerLink]="['/car/', car.key]"> {{car.brand}} </a> 
+            </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="year">
+            <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+            <mat-cell *matCellDef="let car"> {{car.year}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="country">
+            <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+            <mat-cell *matCellDef="let car"> {{car.country}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="delete">
+              <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+              <mat-cell *matCellDef="let car">  
+                  <button mat-mini-fab color="warn" 
+                  matTooltip="Delete" class="margin" (click)="delete(car)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+              </mat-cell>
+          </ng-container>
+    
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </mat-card>
+    
+    <a mat-fab matTooltip="Add New Car" routerLink="/cars/add" class="float green">
+      <mat-icon>add</mat-icon>
+    </a>
+      
+</div>

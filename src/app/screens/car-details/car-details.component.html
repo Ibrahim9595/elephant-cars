@@ -1,5 +1,5 @@
 <div class="container">
-    
+    <mat-spinner *ngIf="!car"></mat-spinner>
     <mat-card *ngIf="car">
         <mat-card-title> {{car.brand}} </mat-card-title>
         <img mat-card-image [src]="car.url"/>

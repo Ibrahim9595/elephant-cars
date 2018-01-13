@@ -6,26 +6,27 @@
 
   <mat-form-field>
     <mat-select placeholder="Country" [(value)]="car.country" required [formControl]="country">
-        <mat-option value=""></mat-option>
-      <mat-option value="option">Option</mat-option>
+      <mat-option value=""></mat-option>
+      <mat-option *ngFor="let country of countries" value="country">{{country}}</mat-option>
     </mat-select>
     <mat-error *ngIf="country.invalid">The country is required</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-      <input matInput placeholder="Enter manifacturing year" [(ngModel)]="car.year" [formControl]="year" required>
-      <mat-error *ngIf="year.invalid">This must be valid year</mat-error>
+    <input matInput [matDatepicker]="picker" [formControl]="year" placeholder="Choose a year" (dateChange)="updateYear($event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="year" touchUi="true"></mat-datepicker>
+    <mat-error *ngIf="country.invalid">The year is required</mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <input matInput placeholder="Enter car Image URL" [(ngModel)]="car.url" [formControl]="url" required>
     <mat-error *ngIf="url.invalid">The URL must be valid</mat-error>
   </mat-form-field>
- 
+
   <div>
-      <button mat-fab matTooltip="Save Car"  class="float blue" (click)="saveCar()"
-      [disabled]="!(url.valid && year.valid && country.valid && brand.valid)">
-          <mat-icon>save</mat-icon>
-      </button>
+    <button mat-fab matTooltip="Save Car" class="float blue" (click)="saveCar()" [disabled]="!(url.valid && year.valid && country.valid && brand.valid)">
+      <mat-icon>save</mat-icon>
+    </button>
   </div>
 </div>

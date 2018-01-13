@@ -1,5 +1,5 @@
-<mat-toolbar color="primary" *ngIf="loginService.user">
-  <span>Elephant Car</span>
+<mat-toolbar color="primary" *ngIf="loginService.isLoggedIn()">
+  <span>Elephant Cars</span>
   <div class="space"></div>
   <button mat-icon-button color="secondary" matTooltip="Logout" (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
