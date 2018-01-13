@@ -31,6 +31,7 @@ import { CarDetailsComponent } from './screens/car-details/car-details.component
 import { LoginComponent } from './screens/login/login.component';
 import { UserAuthinticationService } from './user-authintication.service';
 import { environment } from '../environments/environment';
+import { PageNotFoundComponent } from './screens/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { environment } from '../environments/environment';
     CarsTableComponent,
     CarsAddComponent,
     CarDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

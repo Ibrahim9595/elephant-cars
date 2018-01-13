@@ -18,18 +18,21 @@ export class LoginComponent{
     email: "",
     password: ""
   };
-
+  loginState = "login";
+  
   constructor(
     private loginService: UserAuthinticationService, 
     private router: Router, 
     private snakBar: MatSnackBar) { }
 
   login(){
+    this.loginState = "Loading...";
     this.loginService.login(this.user)
     .then(d => {
       this.router.navigate(['']);
     }).catch(e => {
       this.snakBar.open("Wrong user name or password", "Dismiss");
+      this.loginState = "Login";
     });
   }
   

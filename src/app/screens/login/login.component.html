@@ -18,7 +18,7 @@
         <button mat-raised-button class="float green" (click)="login()" 
         [disabled]="!(email.valid && password.valid)">
           <mat-icon>forward</mat-icon>
-          Login
+          {{loginState}}
         </button>
       </div>
     </mat-card-content>
