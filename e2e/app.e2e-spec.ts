@@ -1,10 +1,10 @@
-import { CarsAppPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('cars-app App', () => {
-  let page: CarsAppPage;
+describe('elephant-cars App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new CarsAppPage();
+    page = new AppPage();
   });
 
   it('should display welcome message', () => {
